@@ -37,4 +37,5 @@ public class Feature
     public string type;
     public int width;
     public int height;
+    public int height1; // junk
 }

@@ -27,6 +27,12 @@ public class DungeonGenerator : MonoBehaviour
         room.positions = new List<Position>();
         int roomWidth = Random.Range(widthMinRoom, widthMaxRoom);
         int roomHeight = Random.Range(heightMinRoom, heightMaxRoom);
+
+        int xStartingPoint = mapWidth / 2;
+        int yStartingPoint = mapHeight / 2;
+
+        xStartingPoint -= Random.Range(0, roomWidth);
+        yStartingPoint -= Random.Range(0,roomHeight);
     }
 
 }
