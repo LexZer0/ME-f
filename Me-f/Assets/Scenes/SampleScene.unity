@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 174051166}
   - component: {fileID: 174051165}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ASCIITest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,19 +165,22 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 612911464e26d6b41a77b7443ea2b5f3, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "                       ######                     \n                      
+    #....#                     \n                       #....#                    
+    \n                       #....#                     \n                      
+    #....#                     \n    ######  "
 --- !u!222 &174051166
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -215,11 +218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 800, y: 800}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -320,7 +323,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 259.45563
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -344,7 +347,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -353,8 +356,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 550, y: 258}
+  m_SizeDelta: {x: 1099.8667, y: 514.3789}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &733060319
 GameObject:
@@ -454,15 +457,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68ca9ea6f308a04a9fa35b60716044e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapWidth: 0
-  mapHeight: 0
-  widthMinRoom: 0
-  widthMaxRoom: 0
-  heightMinRoom: 0
-  heightMaxRoom: 0
-  maxCorridorLength: 0
-  maxFeatures: 0
-  isASCII: 0
+  mapWidth: 50
+  mapHeight: 50
+  widthMinRoom: 4
+  widthMaxRoom: 10
+  heightMinRoom: 4
+  heightMaxRoom: 10
+  maxCorridorLength: 10
+  maxFeatures: 50
+  isASCII: 1
 --- !u!114 &2050265408
 MonoBehaviour:
   m_ObjectHideFlags: 0
