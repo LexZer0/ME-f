@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class RoomPlacer : MonoBehaviour
 {
@@ -15,9 +16,11 @@ public class RoomPlacer : MonoBehaviour
     {
         spawnedRooms = new Room[11, 11];
         spawnedRooms[5, 5] = StartingRoom;
-
+        Instantiate(StartingRoom);
+        StartingRoom.transform.position = new Vector3(0, 0, 0);
         for (int i = 0; i < 12; i++)
         {
+            // Это вот просто убрать чтобы подземелье генерировалось мгновенно на старте
             yield return new WaitForSecondsRealtime(0.5f);
 
             PlaceOneRoom();
@@ -52,17 +55,17 @@ public class RoomPlacer : MonoBehaviour
             // Эту строчку можно заменить на выбор положения комнаты с учётом того насколько он далеко/близко от центра,
             // или сколько у него соседей, чтобы генерировать более плотные, или наоборот, растянутые данжи
             Vector2Int position = vacantPlaces.ElementAt(Random.Range(0, vacantPlaces.Count));
-            newRoom.RotateRandomly();
+           
 
             if (ConnectToSomething(newRoom, position))
             {
-                newRoom.transform.position = new Vector2(position.x - 5, position.y - 5) * 7;
+                newRoom.transform.position = new Vector3(position.x - 5, position.y - 5,0 ) * 7;
                 spawnedRooms[position.x, position.y] = newRoom;
                 return;
             }
         }
 
-        //Destroy(newRoom.gameObject);
+        Destroy(newRoom.gameObject);
     }
 
     private bool ConnectToSomething(Room room, Vector2Int p)
@@ -72,10 +75,10 @@ public class RoomPlacer : MonoBehaviour
 
         List<Vector2Int> neighbours = new List<Vector2Int>();
 
-        if (room.DoorN != null && p.y < maxY && spawnedRooms[p.x, p.y + 1]?.DoorS != null) neighbours.Add(Vector2Int.up);
-        if (room.DoorS != null && p.y > 0 && spawnedRooms[p.x, p.y - 1]?.DoorN != null) neighbours.Add(Vector2Int.down);
-        if (room.DoorE != null && p.x < maxX && spawnedRooms[p.x + 1, p.y]?.DoorW != null) neighbours.Add(Vector2Int.right);
-        if (room.DoorW != null && p.x > 0 && spawnedRooms[p.x - 1, p.y]?.DoorE != null) neighbours.Add(Vector2Int.left);
+        if (room.DoorU != null && p.y < maxY && spawnedRooms[p.x, p.y + 1]?.DoorD != null) neighbours.Add(Vector2Int.up);
+        if (room.DoorD != null && p.y > 0 && spawnedRooms[p.x, p.y - 1]?.DoorU != null) neighbours.Add(Vector2Int.down);
+        if (room.DoorR != null && p.x < maxX && spawnedRooms[p.x + 1, p.y]?.DoorL != null) neighbours.Add(Vector2Int.right);
+        if (room.DoorL != null && p.x > 0 && spawnedRooms[p.x - 1, p.y]?.DoorR != null) neighbours.Add(Vector2Int.left);
 
         if (neighbours.Count == 0) return false;
 
@@ -84,23 +87,23 @@ public class RoomPlacer : MonoBehaviour
 
         if (selectedDirection == Vector2Int.up)
         {
-            room.DoorN.SetActive(false);
-            selectedRoom.DoorS.SetActive(false);
+            room.DoorU.SetActive(false);
+            selectedRoom.DoorD.SetActive(false);
         }
         else if (selectedDirection == Vector2Int.down)
         {
-            room.DoorS.SetActive(false);
-            selectedRoom.DoorN.SetActive(false);
+            room.DoorD.SetActive(false);
+            selectedRoom.DoorU.SetActive(false);
         }
         else if (selectedDirection == Vector2Int.right)
         {
-            room.DoorE.SetActive(false);
-            selectedRoom.DoorW.SetActive(false);
+            room.DoorR.SetActive(false);
+            selectedRoom.DoorL.SetActive(false);
         }
         else if (selectedDirection == Vector2Int.left)
         {
-            room.DoorW.SetActive(false);
-            selectedRoom.DoorE.SetActive(false);
+            room.DoorL.SetActive(false);
+            selectedRoom.DoorR.SetActive(false);
         }
 
         return true;

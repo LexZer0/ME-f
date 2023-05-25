@@ -1021,7 +1021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 761795096333530519}
   - component: {fileID: 4870950774583478182}
-  - component: {fileID: 1511503250880224183}
+  - component: {fileID: 2457627927307838600}
   m_Layer: 0
   m_Name: chunk2
   m_TagString: Untagged
@@ -1037,7 +1037,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5612144325429029200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.53, y: -0.46, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1107,7 +1107,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1511503250880224183
+--- !u!114 &2457627927307838600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1119,10 +1119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a922ccb65a2541841b9b4dc7e7ed3c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoorN: {fileID: 7557033858148224303}
-  DoorS: {fileID: 2084520196102618557}
-  DoorW: {fileID: 8918358045256158557}
-  DoorE: {fileID: 4461667260392405118}
+  DoorU: {fileID: 7557033858148224303}
+  DoorD: {fileID: 2084520196102618557}
+  DoorL: {fileID: 8918358045256158557}
+  DoorR: {fileID: 4461667260392405118}
 --- !u!1 &6215878572259449639
 GameObject:
   m_ObjectHideFlags: 0
