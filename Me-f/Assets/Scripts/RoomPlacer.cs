@@ -9,10 +9,11 @@ public class RoomPlacer : MonoBehaviour
 {
     public Room[] RoomPrefabs;
     public Room StartingRoom;
-
+    public Room[] BossRoomPrefabs;
+    public Room[] ArtefactRoomPrefabs;
     private Room[,] spawnedRooms;
 
-    private IEnumerator Start()
+    private void Start()
     {
         spawnedRooms = new Room[11, 11];
         spawnedRooms[5, 5] = StartingRoom;
@@ -20,11 +21,10 @@ public class RoomPlacer : MonoBehaviour
         StartingRoom.transform.position = new Vector3(0, 0, 0);
         for (int i = 0; i < 12; i++)
         {
-            // Ёто вот просто убрать чтобы подземелье генерировалось мгновенно на старте
-            yield return new WaitForSecondsRealtime(0.5f);
-
             PlaceOneRoom();
         }
+        PlaceBossRoom();
+        PlaceArtefactRoom();
     }
 
     private void PlaceOneRoom()
@@ -46,28 +46,107 @@ public class RoomPlacer : MonoBehaviour
             }
         }
 
-        // Ёту строчку можно заменить на выбор комнаты с учЄтом еЄ веро€тности, вроде как в ChunksPlacer.GetRandomChunk()
+
         Room newRoom = Instantiate(RoomPrefabs[Random.Range(0, RoomPrefabs.Length)]);
 
         int limit = 500;
         while (limit-- > 0)
         {
-            // Ёту строчку можно заменить на выбор положени€ комнаты с учЄтом того насколько он далеко/близко от центра,
-            // или сколько у него соседей, чтобы генерировать более плотные, или наоборот, раст€нутые данжи
+
             Vector2Int position = vacantPlaces.ElementAt(Random.Range(0, vacantPlaces.Count));
-           
+
 
             if (ConnectToSomething(newRoom, position))
             {
-                newRoom.transform.position = new Vector3(position.x - 5, position.y - 5,0 ) * 7;
+                newRoom.transform.position = new Vector3(position.x - 5, position.y - 5, 0) * 7;
                 spawnedRooms[position.x, position.y] = newRoom;
+
                 return;
             }
         }
 
         Destroy(newRoom.gameObject);
     }
+    private void PlaceBossRoom()
+    {
+        HashSet<Vector2Int> vacantPlaces = new HashSet<Vector2Int>();
+        for (int x = 0; x < spawnedRooms.GetLength(0); x++)
+        {
+            for (int y = 0; y < spawnedRooms.GetLength(1); y++)
+            {
+                if (spawnedRooms[x, y] == null) continue;
 
+                int maxX = spawnedRooms.GetLength(0) - 1;
+                int maxY = spawnedRooms.GetLength(1) - 1;
+
+                if (x > 0 && spawnedRooms[x - 1, y] == null) vacantPlaces.Add(new Vector2Int(x - 1, y));
+                if (y > 0 && spawnedRooms[x, y - 1] == null) vacantPlaces.Add(new Vector2Int(x, y - 1));
+                if (x < maxX && spawnedRooms[x + 1, y] == null) vacantPlaces.Add(new Vector2Int(x + 1, y));
+                if (y < maxY && spawnedRooms[x, y + 1] == null) vacantPlaces.Add(new Vector2Int(x, y + 1));
+            }
+        }
+
+
+        Room newRoom = Instantiate(BossRoomPrefabs[Random.Range(0, RoomPrefabs.Length)]);
+
+        int limit = 500;
+        while (limit-- > 0)
+        {
+
+            Vector2Int position = vacantPlaces.ElementAt(Random.Range(0, vacantPlaces.Count));
+
+
+            if (ConnectToSomething(newRoom, position))
+            {
+                newRoom.transform.position = new Vector3(position.x - 5, position.y - 5, 0) * 7;
+                spawnedRooms[position.x, position.y] = newRoom;
+
+                return;
+            }
+        }
+
+        Destroy(newRoom.gameObject);
+    }
+    private void PlaceArtefactRoom()
+    {
+        HashSet<Vector2Int> vacantPlaces = new HashSet<Vector2Int>();
+        for (int x = 0; x < spawnedRooms.GetLength(0); x++)
+        {
+            for (int y = 0; y < spawnedRooms.GetLength(1); y++)
+            {
+                if (spawnedRooms[x, y] == null) continue;
+
+                int maxX = spawnedRooms.GetLength(0) - 1;
+                int maxY = spawnedRooms.GetLength(1) - 1;
+
+                if (x > 0 && spawnedRooms[x - 1, y] == null) vacantPlaces.Add(new Vector2Int(x - 1, y));
+                if (y > 0 && spawnedRooms[x, y - 1] == null) vacantPlaces.Add(new Vector2Int(x, y - 1));
+                if (x < maxX && spawnedRooms[x + 1, y] == null) vacantPlaces.Add(new Vector2Int(x + 1, y));
+                if (y < maxY && spawnedRooms[x, y + 1] == null) vacantPlaces.Add(new Vector2Int(x, y + 1));
+            }
+        }
+
+
+        Room newRoom = Instantiate(ArtefactRoomPrefabs[Random.Range(0, RoomPrefabs.Length)]);
+
+        int limit = 500;
+        while (limit-- > 0)
+        {
+
+            Vector2Int position = vacantPlaces.ElementAt(Random.Range(0, vacantPlaces.Count));
+
+
+            if (ConnectToSomething(newRoom, position))
+            {
+                newRoom.transform.position = new Vector3(position.x - 5, position.y - 5, 0) * 7;
+                spawnedRooms[position.x, position.y] = newRoom;
+
+                return;
+            }
+        }
+
+        Destroy(newRoom.gameObject);
+    }
     private bool ConnectToSomething(Room room, Vector2Int p)
     {
         int maxX = spawnedRooms.GetLength(0) - 1;
@@ -108,4 +187,6 @@ public class RoomPlacer : MonoBehaviour
 
         return true;
     }
+    
+
 }

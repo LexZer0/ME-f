@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6240214679633664495}
   - component: {fileID: 6240214679633664492}
   - component: {fileID: 6240214679633664493}
-  - component: {fileID: 6240214679633664497}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -105,7 +104,7 @@ SpriteRenderer:
   m_Size: {x: 0.35, y: 0.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &6240214679633664493
@@ -120,20 +119,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f68e3df4701c334a8c506c52159b3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
---- !u!58 &6240214679633664497
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6240214679633664490}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0024480969, y: -0.0005814135}
-  serializedVersion: 2
-  m_Radius: 0.21628353
+  animator: {fileID: 0}

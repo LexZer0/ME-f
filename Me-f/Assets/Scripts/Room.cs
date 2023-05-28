@@ -8,14 +8,14 @@ public class Room : MonoBehaviour
     public GameObject DoorD; // Down
     public GameObject DoorL; // Left
     public GameObject DoorR; // Right
-    void Start()
+    void OnEnable()
     {
-        
+        DoorU.SetActive(true);
+        DoorD.SetActive(true);
+        DoorL.SetActive(true);
+        DoorR.SetActive(true);
     }
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
