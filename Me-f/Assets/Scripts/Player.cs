@@ -33,6 +33,10 @@ public class Player : MonoBehaviour
         Cursor.visible = false;
         
     }
+    private void Start()
+    {
+        Physics2D.IgnoreLayerCollision(6, 7, true);
+    }
     void Update()
     {
 
@@ -118,10 +122,6 @@ public class Player : MonoBehaviour
             
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-    }
-
 }
 
 

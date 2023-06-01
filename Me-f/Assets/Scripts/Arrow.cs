@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    private void Start()
+    {
+        Physics2D.IgnoreLayerCollision(6, 7, true);
+        Physics2D.IgnoreLayerCollision(7, 8, true);
+    }
     public int damage = 10;  // урон стрелы
 
     void OnTriggerEnter2D(Collider2D other)
@@ -17,10 +22,14 @@ public class Arrow : MonoBehaviour
             }
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(collision.gameObject);
+        if (collision.gameObject.tag == "Walls")
+        {
+            Destroy(gameObject);
+        }
+
+
     }
 
 

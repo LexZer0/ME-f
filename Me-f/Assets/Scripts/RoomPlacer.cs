@@ -87,7 +87,7 @@ public class RoomPlacer : MonoBehaviour
         }
 
 
-        Room newRoom = Instantiate(BossRoomPrefabs[Random.Range(0, BossRoomPrefabs.Length)]);
+        Room newRoom = Instantiate(BossRoomPrefabs[Random.Range(0, BossRoomPrefabs.Length)]); 
 
         int limit = 500;
         while (limit-- > 0)
