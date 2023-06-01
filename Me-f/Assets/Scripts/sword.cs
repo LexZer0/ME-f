@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arrow : MonoBehaviour
+public class sword : MonoBehaviour
 {
-    public int damage = 10;  // урон стрелы
+    public int damage = 20;  // урон меча
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,11 +17,4 @@ public class Arrow : MonoBehaviour
             }
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Destroy(collision.gameObject);
-    }
-
-
 }
