@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
     }
     void Update()
     {
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Magnitude", movement.magnitude);
         ProcessInputs();
+        Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), Arrow.GetComponent<Collider2D>());
         Shoot();
         Move();
         MoveCrossHair();
@@ -115,7 +118,9 @@ public class Player : MonoBehaviour
             
         }
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+    }
 
 }
 

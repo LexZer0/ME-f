@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8750854363286330006}
   - component: {fileID: 8750854363286330001}
   - component: {fileID: 8750854363286330028}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,17 +207,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f68e3df4701c334a8c506c52159b3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 0
   moveSpeed: 5
   ArrowSpeed: 3
   ArrowRange: 0.7
-  AimpingPenalty: 0.7
+  shootingRecoilBase: 0
   animator: {fileID: 8750854363286330028}
   rb: {fileID: 8750854363286330000}
   crossHair: {fileID: 8750854363445698186}
   distanceOfCrossHair: 2
+  shootingRecoil: 0
   endOfAiming: 0
-  Arrow: {fileID: 8647399944621663549, guid: ee4167130241003458532c27714eaf58, type: 3}
   isAiming: 0
+  Arrow: {fileID: 8647399944621663549, guid: ee4167130241003458532c27714eaf58, type: 3}
 --- !u!70 &8750854363286330001
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
