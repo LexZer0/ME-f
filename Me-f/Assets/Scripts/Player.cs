@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
     }
     private void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         Physics2D.IgnoreLayerCollision(6, 7, true);
     }
     void Update()
@@ -51,15 +53,7 @@ public class Player : MonoBehaviour
         MoveCrossHair();
 
     }
-    private void FixedUpdate()
-    {
-        if (Health == 0)
-        {
-            //Destroy();
 
-
-        }
-    }
 
     void ProcessInputs()
     {
@@ -128,7 +122,7 @@ public class Player : MonoBehaviour
         Health -= damage;
         if (Health <= 0)
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene("EndMenu");
         }
     }
 }

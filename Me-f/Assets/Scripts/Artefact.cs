@@ -8,8 +8,8 @@ public class Artefact : MonoBehaviour
     public Artefact[] ArtefactRoom;
     void Start()
     {
-        Artefact newRoom = Instantiate(ArtefactRoom[Random.Range(0, ArtefactRoom.Length)]);
-        transform.position = new Vector2(0, 0);
+        //Artefact newRoom = Instantiate(ArtefactRoom[Random.Range(0, ArtefactRoom.Length)]);
+        //transform.position = new Vector2(0, 0);
     }
 
     // Update is called once per frame
