@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        
+
     }
     private void Start()
     {
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
         aim += mouseMovement;
         endOfAiming = Input.GetButtonUp("Fire1"); //Ctrl or mouseLeftclick
 
-        
+
         if (isAiming)
         {
             InGameMoveSpeed = moveSpeed / 2;
@@ -112,14 +112,23 @@ public class Player : MonoBehaviour
         {
             shootingRecoil -= Time.deltaTime;
         }
-        if (endOfAiming && shootingRecoil<=0)
+        if (endOfAiming && shootingRecoil <= 0)
         {
             GameObject arrow = Instantiate(Arrow, transform.position, Quaternion.identity);
             arrow.GetComponent<Rigidbody2D>().velocity = shootingDirection * ArrowSpeed;
             arrow.transform.Rotate(0, 0, Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg);
-            Destroy(arrow, ArrowRange);           
+            Destroy(arrow, ArrowRange);
             shootingRecoil = shootingRecoilBase;
-            
+
+        }
+    }
+    public void TakeDamage(int damage)
+    {
+        // Логика обработки урона игрока
+        Health -= damage;
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
