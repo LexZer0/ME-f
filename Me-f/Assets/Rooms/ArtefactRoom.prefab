@@ -143,13 +143,14 @@ GameObject:
   m_Component:
   - component: {fileID: 7101059083098989458}
   - component: {fileID: 5802068282613311635}
+  - component: {fileID: 3515208109973575660}
   m_Layer: 0
   m_Name: Artefacts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7101059083098989458
 Transform:
   m_ObjectHideFlags: 0
@@ -158,7 +159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232041376099066718}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -172,11 +173,94 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232041376099066718}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36caed10b784d754a9b5b6dbc0abbe37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArtefactRoom: []
+--- !u!114 &3515208109973575660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232041376099066718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935e11e1d528a6c4aac67e947c209c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artifactPrefabs:
+  - {fileID: 5180926799729559130, guid: 81addf9fc17d1b2409aa8b13cb7a44c0, type: 3}
+  - {fileID: 2410963890503761229, guid: 05f90be2b2dad6c4380c52dc5b564926, type: 3}
+  - {fileID: 3032539497338482085, guid: 7656debcd16165c48966aa631ea49228, type: 3}
+  numArtifacts: 3
+  shift: -2
+--- !u!1 &772341680779727915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 549134531653784862}
+  - component: {fileID: 4636616000347831875}
+  - component: {fileID: 5487172531194089959}
+  m_Layer: 0
+  m_Name: Artefacts (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &549134531653784862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772341680779727915}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3404471960513839280}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4636616000347831875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772341680779727915}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36caed10b784d754a9b5b6dbc0abbe37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ArtefactRoom: []
+--- !u!114 &5487172531194089959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772341680779727915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935e11e1d528a6c4aac67e947c209c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artifactPrefabs:
+  - {fileID: 5180926799729559130, guid: 81addf9fc17d1b2409aa8b13cb7a44c0, type: 3}
+  - {fileID: 2410963890503761229, guid: 05f90be2b2dad6c4380c52dc5b564926, type: 3}
+  - {fileID: 3032539497338482085, guid: 7656debcd16165c48966aa631ea49228, type: 3}
+  numArtifacts: 1
+  shift: -2
 --- !u!1 &1160564151262077990
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +436,8 @@ Transform:
   - {fileID: 3899624667255577817}
   - {fileID: 7421937441265614825}
   - {fileID: 7101059083098989458}
+  - {fileID: 8654991954362629395}
+  - {fileID: 549134531653784862}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1024,3 +1110,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8081698292727753152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8654991954362629395}
+  - component: {fileID: 4819881488613911576}
+  - component: {fileID: 5295034610018978997}
+  m_Layer: 0
+  m_Name: Artefacts (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8654991954362629395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081698292727753152}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3404471960513839280}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4819881488613911576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081698292727753152}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36caed10b784d754a9b5b6dbc0abbe37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ArtefactRoom: []
+--- !u!114 &5295034610018978997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081698292727753152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935e11e1d528a6c4aac67e947c209c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artifactPrefabs:
+  - {fileID: 5180926799729559130, guid: 81addf9fc17d1b2409aa8b13cb7a44c0, type: 3}
+  - {fileID: 3032539497338482085, guid: 7656debcd16165c48966aa631ea49228, type: 3}
+  - {fileID: 2410963890503761229, guid: 05f90be2b2dad6c4380c52dc5b564926, type: 3}
+  - {fileID: 7346920229584627777, guid: dddfd70be1f137641a10130a04ed08d9, type: 3}
+  numArtifacts: 3
+  shift: -2

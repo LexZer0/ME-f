@@ -6,7 +6,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Ñharacteristic")]
+    public int MaxHealth = 100;
     public int Health;
+    public int currentDamage=10;
     public float moveSpeed;
     public float ArrowSpeed;
     public float ArrowRange;
@@ -36,6 +38,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Physics2D.IgnoreLayerCollision(6, 7, true);
+        Health = MaxHealth;
+        currentDamage = 10;
     }
     void Update()
     {
@@ -50,7 +54,26 @@ public class Player : MonoBehaviour
         Move();
         MoveCrossHair();
 
+
     }
+
+    public void TakeDamage(int damageAmount)
+    {
+        Health -= damageAmount;
+
+        if (Health <= 0)
+        {
+            //Die();
+        }
+    }
+
+    public void Heal(int amount)
+    {
+        Health += amount;
+        if (Health > MaxHealth)
+            Health = MaxHealth;
+    }
+
     private void FixedUpdate()
     {
         if (Health == 0)

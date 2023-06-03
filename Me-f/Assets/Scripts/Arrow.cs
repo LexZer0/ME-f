@@ -9,10 +9,22 @@ public class Arrow : MonoBehaviour
         Physics2D.IgnoreLayerCollision(6, 7, true);
         Physics2D.IgnoreLayerCollision(7, 8, true);
     }
-    public int damage = 10;  // урон стрелы
+
+    int setDamage()
+    {
+        Player player = GetComponent<Player>();
+        int damage = player.currentDamage;
+        return damage;
+    }
+
+
+
+    //public int damage = Damage.currentDamage;  // урон стрелы
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        int damage=setDamage();
         if (other.CompareTag("Enemy"))
         {
             Enemy enemy = other.GetComponent<Enemy>();
@@ -28,9 +40,5 @@ public class Arrow : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-
     }
-
-
 }
