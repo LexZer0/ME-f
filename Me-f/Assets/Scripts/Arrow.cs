@@ -4,33 +4,23 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    public int ArrowDamage = 10;
     private void Start()
     {
         Physics2D.IgnoreLayerCollision(6, 7, true);
         Physics2D.IgnoreLayerCollision(7, 8, true);
     }
 
-    int setDamage()
-    {
-        Player player = GetComponent<Player>();
-        int damage = player.currentDamage;
-        return damage;
-    }
-
-
-
-    //public int damage = Damage.currentDamage;  // урон стрелы
-
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        int damage=setDamage();
+        //int damage=setDamage();
         if (other.CompareTag("Enemy"))
         {
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);  // нанесение урона врагам при столкновении
+                enemy.TakeDamage(ArrowDamage);  // нанесение урона врагам при столкновении
             }
         }
     }

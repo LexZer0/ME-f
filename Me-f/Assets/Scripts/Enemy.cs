@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 {
     public int health = 100;
     public float speed = 5f;
-    public int damage = 10;
+    public int Damage = 10;
     public GameObject player;
     private Rigidbody2D rb;
     private Player playerScript;
@@ -46,7 +46,8 @@ public class Enemy : MonoBehaviour
         
         if (collision.gameObject.tag == "Arrow")
         {
-            TakeDamage(damage);
+            TakeDamage(playerScript.currentDamage);
+            Destroy(collision.gameObject);
         }
         
     }
@@ -54,7 +55,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "player")
         {
-            playerScript.TakeDamage(damage);
+            playerScript.TakeDamage(Damage);
 
         }
     }

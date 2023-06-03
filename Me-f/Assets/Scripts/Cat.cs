@@ -12,7 +12,7 @@ public class Cat : MonoBehaviour
         {
             Player boost = other.GetComponent<Player>();
             boost.MaxHealth += healthIncrease; //Увеличиваем урон персонажа на заданную величину
-            boost.Health -= healthIncrease;
+            boost.Health += healthIncrease;
             Destroy(gameObject); //Уничтожаем объект артефакта
         }
     }
