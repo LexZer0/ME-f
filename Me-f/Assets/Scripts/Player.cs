@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [Header("Сharacteristic")]
+    [Header("Г‘haracteristic")]
+    public int MaxHealth = 100;
     public int Health = 100;
+    public int currentDamage=10;
     public float moveSpeed;
     public float ArrowSpeed;
     public float ArrowRange;
@@ -38,6 +40,8 @@ public class Player : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         Physics2D.IgnoreLayerCollision(6, 7, true);
+        Health = MaxHealth;
+        currentDamage = 10;
     }
     void Update()
     {
@@ -52,8 +56,23 @@ public class Player : MonoBehaviour
         Move();
         MoveCrossHair();
 
+
     }
 
+    public void Heal(int amount)
+    {
+        Health += amount;
+        if (Health > MaxHealth)
+            Health = MaxHealth;
+    }
+
+    private void FixedUpdate()
+    {
+        if (Health == 0)
+        {
+            //Destroy();
+        }
+    }
 
     void ProcessInputs()
     {
@@ -118,7 +137,7 @@ public class Player : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        // Логика обработки урона игрока
+        // Г‹Г®ГЈГЁГЄГ  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ ГіГ°Г®Г­Г  ГЁГЈГ°Г®ГЄГ 
         Health -= damage;
         if (Health <= 0)
         {
