@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
     private void Start()
-    {
+    { 
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
         playerScript = player.GetComponent<Player>();
