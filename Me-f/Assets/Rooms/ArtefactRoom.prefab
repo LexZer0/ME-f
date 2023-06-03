@@ -1173,5 +1173,7 @@ MonoBehaviour:
   - {fileID: 3032539497338482085, guid: 7656debcd16165c48966aa631ea49228, type: 3}
   - {fileID: 2410963890503761229, guid: 05f90be2b2dad6c4380c52dc5b564926, type: 3}
   - {fileID: 7346920229584627777, guid: dddfd70be1f137641a10130a04ed08d9, type: 3}
+  - {fileID: 1349562428016231925, guid: 9844ab2f99485ec4f8c368c4d0887d4a, type: 3}
+  - {fileID: 672431360040207658, guid: 5043224a725fb054088a90651cbc0264, type: 3}
   numArtifacts: 3
   shift: -2

@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public float ArrowSpeed;
     public float ArrowRange;
     public float shootingRecoilBase;
+    public bool artGlue = false;
+    public bool flyOver = false;
 
     [Space]
     [Header("System Settings")]
@@ -143,6 +145,29 @@ public class Player : MonoBehaviour
         {
             gameObject.SetActive(false);
             SceneManager.LoadScene("EndMenu");
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") && artGlue == true)
+        {
+            float slowAmount = other.GetComponent<Glue>().slowAmount;
+            float slowDuration = other.GetComponent<Glue>().slowDuration;
+            // уменьшаем скорость врага на заданное количество
+            var enemyMovement = other.GetComponent<Enemy>();
+            if (enemyMovement != null)
+            {
+                enemyMovement.SetSlow(slowDuration, slowAmount);
+            }
+        }
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Void") && flyOver == true)
+        {
+            // Отключаем коллизию между этим объектом и коллайдером, с которым столкнулись
+            Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), collision.collider);
         }
     }
 }
