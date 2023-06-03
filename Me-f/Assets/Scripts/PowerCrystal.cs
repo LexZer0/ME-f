@@ -13,6 +13,8 @@ public class PowerCrystal : MonoBehaviour
         {
             Player boost = other.GetComponent<Player>();
             boost.currentDamage += damageIncrease; //Увеличиваем урон персонажа на заданную величину
+            Arrow arrowDamage = other.GetComponent<Arrow>();
+            arrowDamage.ArrowDamage += damageIncrease;
             boost.Health -= healthDecrease; //Уменьшаем текущее здоровье
             Destroy(gameObject); //Уничтожаем объект артефакта
         }

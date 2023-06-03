@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [Header("Ñharacteristic")]
     public int MaxHealth = 100;
     public int Health = 100;
-    public int currentDamage=10;
+    public int currentDamage = 10;
     public float moveSpeed;
     public float ArrowSpeed;
     public float ArrowRange;
