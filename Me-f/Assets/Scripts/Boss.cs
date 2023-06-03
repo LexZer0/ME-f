@@ -1,10 +1,8 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class Enemy : MonoBehaviour
+public class Boss : MonoBehaviour
 {
     public int health = 100;
     public float speed = 5f;
@@ -12,6 +10,16 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     private Rigidbody2D rb;
     private Player playerScript;
+    public GameObject enemyPrefab;
+    public int numEnemies = 3; //  оличество новых противников после смерти
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player");
+        playerScript = player.GetComponent<Player>();
+    }
+
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -21,16 +29,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Die()
-    {
-        Destroy(gameObject);
-    }
-    private void Start()
-    { 
-        rb = GetComponent<Rigidbody2D>();
-        player = GameObject.Find("Player");
-        playerScript = player.GetComponent<Player>();
-    }
     private void Update()
     {
         // ѕолучаем направление движени€ к игроку
@@ -40,22 +38,14 @@ public class Enemy : MonoBehaviour
         // ƒвигаем врага в направлении игрока с определенной скоростью
         rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
         //transform.Translate(direction * speed * Time.deltaTime);
+     
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    void Die()
     {
-        
-        if (collision.gameObject.tag == "Arrow")
+        Destroy(gameObject);
+        for (int i = 0; i < numEnemies; i++)
         {
-            TakeDamage(damage);
-        }
-        
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "player")
-        {
-            playerScript.TakeDamage(damage);
-
+            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
         }
     }
 }
