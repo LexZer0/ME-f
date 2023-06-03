@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [Header("�haracteristic")]
+    [Header("Ñharacteristic")]
     public int MaxHealth = 100;
-    public int Health;
+    public int Health = 100;
     public int currentDamage=10;
     public float moveSpeed;
     public float ArrowSpeed;
@@ -33,10 +34,11 @@ public class Player : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        
+
     }
     private void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         Physics2D.IgnoreLayerCollision(6, 7, true);
         Health = MaxHealth;
         currentDamage = 10;
@@ -57,16 +59,6 @@ public class Player : MonoBehaviour
 
     }
 
-    public void TakeDamage(int damageAmount)
-    {
-        Health -= damageAmount;
-
-        if (Health <= 0)
-        {
-            //Die();
-        }
-    }
-
     public void Heal(int amount)
     {
         Health += amount;
@@ -79,8 +71,6 @@ public class Player : MonoBehaviour
         if (Health == 0)
         {
             //Destroy();
-
-
         }
     }
 
@@ -96,7 +86,7 @@ public class Player : MonoBehaviour
         aim += mouseMovement;
         endOfAiming = Input.GetButtonUp("Fire1"); //Ctrl or mouseLeftclick
 
-        
+
         if (isAiming)
         {
             InGameMoveSpeed = moveSpeed / 2;
@@ -135,14 +125,24 @@ public class Player : MonoBehaviour
         {
             shootingRecoil -= Time.deltaTime;
         }
-        if (endOfAiming && shootingRecoil<=0)
+        if (endOfAiming && shootingRecoil <= 0)
         {
             GameObject arrow = Instantiate(Arrow, transform.position, Quaternion.identity);
             arrow.GetComponent<Rigidbody2D>().velocity = shootingDirection * ArrowSpeed;
             arrow.transform.Rotate(0, 0, Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg);
-            Destroy(arrow, ArrowRange);           
+            Destroy(arrow, ArrowRange);
             shootingRecoil = shootingRecoilBase;
-            
+
+        }
+    }
+    public void TakeDamage(int damage)
+    {
+        // Ëîãèêà îáðàáîòêè óðîíà èãðîêà
+        Health -= damage;
+        if (Health <= 0)
+        {
+            gameObject.SetActive(false);
+            SceneManager.LoadScene("EndMenu");
         }
     }
 }

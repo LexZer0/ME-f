@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8750854363282367938}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.39, y: -0.25, z: -39.85}
   m_LocalScale: {x: 1.432149, y: 1.432149, z: 1.432149}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 8750854363286330028}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,10 +210,10 @@ MonoBehaviour:
   MaxHealth: 100
   Health: 0
   Damage: 0
-  moveSpeed: 5
+  moveSpeed: 2
   ArrowSpeed: 3
-  ArrowRange: 0.7
-  shootingRecoilBase: 0
+  ArrowRange: 1.5
+  shootingRecoilBase: 0.4
   animator: {fileID: 8750854363286330028}
   rb: {fileID: 8750854363286330000}
   crossHair: {fileID: 8750854363445698186}
@@ -235,8 +235,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.020956831, y: -0.39072222}
-  m_Size: {x: 0.28447944, y: 0.28447944}
+  m_Offset: {x: -0.020956831, y: -0.047764465}
+  m_Size: {x: 0.28447944, y: 0.8405523}
   m_Direction: 0
 --- !u!95 &8750854363286330028
 Animator:

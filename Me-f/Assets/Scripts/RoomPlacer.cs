@@ -16,7 +16,6 @@ public class RoomPlacer : MonoBehaviour
     private void Start()
     {
         spawnedRooms = new Room[11, 11];
-        
         spawnedRooms[5, 5] = StartingRoom;
         for (int i = 0; i < 12; i++)
         {
@@ -136,7 +135,7 @@ public class RoomPlacer : MonoBehaviour
             Vector2Int position = vacantPlaces.ElementAt(Random.Range(0, vacantPlaces.Count));
 
 
-            if (ConnectToSomething(newRoom, position))
+            if (BossRoomConnectToSomething(newRoom, position))
             {
                 newRoom.transform.position = new Vector3(position.x - 5, position.y - 5, 0) * 7;
                 spawnedRooms[position.x, position.y] = newRoom;
@@ -229,5 +228,43 @@ public class RoomPlacer : MonoBehaviour
 
         return;
     }
+    private bool BossRoomConnectToSomething(Room room, Vector2Int p)
+    {
+        int maxX = spawnedRooms.GetLength(0) - 1;
+        int maxY = spawnedRooms.GetLength(1) - 1;
 
-}
+        List<Vector2Int> neighbours = new List<Vector2Int>();
+
+        if (room.DoorU != null && p.y < maxY && spawnedRooms[p.x, p.y + 1]?.DoorD != null && spawnedRooms[p.x, p.y + 1].IsBossRoom != true) neighbours.Add(Vector2Int.up);
+        if (room.DoorD != null && p.y > 0 && spawnedRooms[p.x, p.y - 1]?.DoorU != null && spawnedRooms[p.x, p.y - 1].IsBossRoom != true) neighbours.Add(Vector2Int.down);
+        if (room.DoorR != null && p.x < maxX && spawnedRooms[p.x + 1, p.y]?.DoorL != null && spawnedRooms[p.x + 1, p.y].IsBossRoom != true) neighbours.Add(Vector2Int.right);
+        if (room.DoorL != null && p.x > 0 && spawnedRooms[p.x - 1, p.y]?.DoorR != null && spawnedRooms[p.x - 1, p.y].IsBossRoom != true) neighbours.Add(Vector2Int.left);
+
+        if (neighbours.Count == 0) return false;
+
+        Vector2Int selectedDirection = neighbours[Random.Range(0, neighbours.Count)];
+        Room selectedRoom = spawnedRooms[p.x + selectedDirection.x, p.y + selectedDirection.y];
+
+        if (selectedDirection == Vector2Int.up)
+        {
+            room.DoorU.SetActive(false);
+            selectedRoom.DoorD.SetActive(false);
+        }
+        else if (selectedDirection == Vector2Int.down)
+        {
+            room.DoorD.SetActive(false);
+            selectedRoom.DoorU.SetActive(false);
+        }
+        else if (selectedDirection == Vector2Int.right)
+        {
+            room.DoorR.SetActive(false);
+            selectedRoom.DoorL.SetActive(false);
+        }
+        else if (selectedDirection == Vector2Int.left)
+        {
+            room.DoorL.SetActive(false);
+            selectedRoom.DoorR.SetActive(false);
+        }
+        return true;
+    }
+    }
