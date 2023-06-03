@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 8750854363286330031}
   - component: {fileID: 8750854363286330000}
   - component: {fileID: 8750854363286330007}
-  - component: {fileID: 8750854363286330006}
   - component: {fileID: 8750854363286330028}
   - component: {fileID: 238650255053994276}
-  - component: {fileID: 5284513003860626767}
+  - component: {fileID: 8708216603677432461}
   m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,31 +109,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8750854363286330006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8750854363426381058}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f68e3df4701c334a8c506c52159b3ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 0
-  moveSpeed: 5
-  ArrowSpeed: 3
-  ArrowRange: 0.7
-  shootingRecoilBase: 0
-  animator: {fileID: 8750854363286330028}
-  rb: {fileID: 8750854363286330000}
-  crossHair: {fileID: 0}
-  distanceOfCrossHair: 2
-  shootingRecoil: 0
-  endOfAiming: 0
-  isAiming: 0
-  Arrow: {fileID: 8647399944621663549, guid: ee4167130241003458532c27714eaf58, type: 3}
 --- !u!95 &8750854363286330028
 Animator:
   serializedVersion: 5
@@ -169,8 +143,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
---- !u!58 &5284513003860626767
-CircleCollider2D:
+  speed: 5
+  damage: 10
+  player: {fileID: 0}
+  rb: {fileID: 8750854363286330000}
+--- !u!60 &8708216603677432461
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -183,5 +161,26 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.054999996
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.11, y: 0.08}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.024653321, y: 0.039859153}
+      - {x: -0.04457795, y: 0.030349795}
+      - {x: -0.054767605, y: 0.019953215}
+      - {x: -0.054881297, y: -0.019751564}
+      - {x: -0.044945706, y: -0.030582272}
+      - {x: -0.035246268, y: -0.040431112}
+      - {x: 0.03458969, y: -0.039109495}
+      - {x: 0.04510335, y: -0.029856617}
+      - {x: 0.054767605, y: -0.020168766}
+      - {x: 0.05517398, y: 0.020204715}
+      - {x: 0.045119278, y: 0.030012954}
+      - {x: 0.025020815, y: 0.04}

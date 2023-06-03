@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [Header("Ñharacteristic")]
-    public int Health;
+    public int Health = 100;
     public float moveSpeed;
     public float ArrowSpeed;
     public float ArrowRange;
@@ -122,6 +122,7 @@ public class Player : MonoBehaviour
         Health -= damage;
         if (Health <= 0)
         {
+            gameObject.SetActive(false);
             SceneManager.LoadScene("EndMenu");
         }
     }

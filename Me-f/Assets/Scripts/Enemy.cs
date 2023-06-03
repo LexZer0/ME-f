@@ -2,11 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Enemy : MonoBehaviour
 {
     public int health = 100;
-
+    public float speed = 5f;
+    public int damage = 10;
+    public GameObject player;
+    private Rigidbody2D rb;
+    private Player playerScript;
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -20,31 +25,37 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
-}
-public class EnemyController : MonoBehaviour
-{
-    public Transform player;
-    public float speed = 5f;
-    public int damage = 10;
-
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player");
+        playerScript = player.GetComponent<Player>();
+    }
     private void Update()
     {
         // ѕолучаем направление движени€ к игроку
-        Vector3 direction = player.position - transform.position;
+        Vector3 direction = player.gameObject.transform.position - transform.position;
         direction.Normalize();
 
         // ƒвигаем врага в направлении игрока с определенной скоростью
-        transform.Translate(direction * speed * Time.deltaTime);
-
-        // ѕровер€ем соприкосновение с игроком
-        if (Vector3.Distance(transform.position, player.position) < 1f)
+        rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
+        //transform.Translate(direction * speed * Time.deltaTime);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        if (collision.gameObject.tag == "Arrow")
         {
-            // ≈сли враг соприкасаетс€ с игроком, наносим урон игроку
-            Player playerScript = player.GetComponent<Player>();
-            if (playerScript != null)
-            {
-                playerScript.TakeDamage(damage);
-            }
+            TakeDamage(damage);
+        }
+        
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "player")
+        {
+            playerScript.TakeDamage(damage);
+
         }
     }
 }
