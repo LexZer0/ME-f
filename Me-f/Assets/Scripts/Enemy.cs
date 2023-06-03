@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+
     }
     private void Start()
     {
@@ -35,11 +36,13 @@ public class Enemy : MonoBehaviour
     {
         // Получаем направление движения к игроку
         Vector3 direction = player.gameObject.transform.position - transform.position;
-        direction.Normalize();
-
-        // Двигаем врага в направлении игрока с определенной скоростью
-        rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
-        //transform.Translate(direction * speed * Time.deltaTime);
+       
+        if (direction.x < 3 && direction.y < 3 )
+        {
+            direction.Normalize();
+            // Двигаем врага в направлении игрока с определенной скоростью
+            rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -672,7 +672,7 @@ GameObject:
   - component: {fileID: 1027035564174738021}
   - component: {fileID: 2780996663355217841}
   m_Layer: 0
-  m_Name: EscapeFromFloor
+  m_Name: EscapeFromFloor2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
