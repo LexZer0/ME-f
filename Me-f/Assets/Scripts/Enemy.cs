@@ -8,11 +8,14 @@ public class Enemy : MonoBehaviour
 {
     public int health = 100;
     public float speed = 5f;
+    public float currentSpeed;
     public int Damage = 10;
     public GameObject player;
     private Rigidbody2D rb;
     private Player playerScript;
     public float KD = 0;
+    private Coroutine slowCoroutine;
+
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -32,6 +35,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
         playerScript = player.GetComponent<Player>();
+        currentSpeed = speed;
     }
     private void Update()
     {
@@ -45,6 +49,7 @@ public class Enemy : MonoBehaviour
             rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -70,5 +75,19 @@ public class Enemy : MonoBehaviour
                 KD = 1;
             }
         }
+    } 
+    public void SetSlow(float duration, float amount)
+    {
+        if (slowCoroutine != null) 
+            StopCoroutine(slowCoroutine);
+        slowCoroutine = StartCoroutine(SlowCoroutine(duration, amount));
+    }
+
+    private IEnumerator SlowCoroutine(float duration, float amount)
+    {
+        currentSpeed *= (1 - amount);
+        yield return new WaitForSeconds(duration);
+        currentSpeed = speed;
+        slowCoroutine = null;
     }
 }

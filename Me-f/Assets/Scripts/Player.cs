@@ -14,6 +14,13 @@ public class Player : MonoBehaviour
     public float ArrowSpeed;
     public float ArrowRange;
     public float shootingRecoilBase;
+    public bool artGlue = false;
+    public bool flyOver = false;
+    public bool Mirror = false;
+
+    public float fireRate = 0.2f; // скорость стрельбы в секундах
+    private float nextFireTime = 0f; // время следующего выстрела
+    public bool machineGun = false;
 
     [Space]
     [Header("System Settings")]
@@ -56,7 +63,30 @@ public class Player : MonoBehaviour
         Move();
         MoveCrossHair();
 
+        if (Input.GetButton("Fire1") && Time.time >= nextFireTime && machineGun == true) // если зажата левая кнопка мыши и прошло время выстрела
+        {
+            ShootGun(); // стреляем
+            nextFireTime = Time.time + fireRate; // устанавливаем время следующего выстрела
+        }
+    }
 
+    private void ShootGun()
+    {
+        Vector2 shootingDirection = crossHair.transform.localPosition;
+        shootingDirection.Normalize();
+        GameObject arrow = Instantiate(Arrow, transform.position, Quaternion.identity);
+        arrow.GetComponent<Rigidbody2D>().velocity = shootingDirection * ArrowSpeed;
+        arrow.transform.Rotate(0, 0, Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg);
+        Destroy(arrow, ArrowRange);
+
+        if (Mirror == true)
+        {
+            GameObject arrow2 = Instantiate(Arrow, transform.position, Quaternion.identity);
+            arrow2.GetComponent<Rigidbody2D>().velocity = -shootingDirection * ArrowSpeed;
+            arrow2.transform.Rotate(0, 0, Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg);
+            Destroy(arrow2, ArrowRange);
+        }
+        shootingRecoil = shootingRecoilBase;
     }
 
     public void Heal(int amount)
@@ -116,12 +146,20 @@ public class Player : MonoBehaviour
         {
             shootingRecoil -= Time.deltaTime;
         }
-        if (endOfAiming && shootingRecoil <= 0)
+        if (endOfAiming && shootingRecoil <= 0 && machineGun == false)
         {
             GameObject arrow = Instantiate(Arrow, transform.position, Quaternion.identity);
             arrow.GetComponent<Rigidbody2D>().velocity = shootingDirection * ArrowSpeed;
             arrow.transform.Rotate(0, 0, Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg);
             Destroy(arrow, ArrowRange);
+
+            if (Mirror == true)
+            {
+                GameObject arrow2 = Instantiate(Arrow, transform.position, Quaternion.identity);
+                arrow2.GetComponent<Rigidbody2D>().velocity = -shootingDirection * ArrowSpeed;
+                arrow2.transform.Rotate(0, 0, Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg);
+                Destroy(arrow2, ArrowRange);
+            }
             shootingRecoil = shootingRecoilBase;
 
         }
@@ -135,6 +173,30 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene("EndMenu");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") && artGlue == true)
+        {
+            float slowAmount = other.GetComponent<Glue>().slowAmount;
+            float slowDuration = other.GetComponent<Glue>().slowDuration;
+            // уменьшаем скорость врага на заданное количество
+            var enemyMovement = other.GetComponent<Enemy>();
+            if (enemyMovement != null)
+            {
+                enemyMovement.SetSlow(slowDuration, slowAmount);
+            }
+        }
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Void") && flyOver == true)
+        {
+            // Отключаем коллизию между этим объектом и коллайдером, с которым столкнулись
+            Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), collision.collider);
+            Physics2D.IgnoreLayerCollision(6, 8, true);
         }
     }
 }

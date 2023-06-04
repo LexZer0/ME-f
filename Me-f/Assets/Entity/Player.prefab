@@ -328,6 +328,10 @@ MonoBehaviour:
   ArrowSpeed: 3
   ArrowRange: 1.5
   shootingRecoilBase: 0.4
+  artGlue: 0
+  flyOver: 0
+  fireRate: 0.2
+  machineGun: 0
   animator: {fileID: 8750854363286330028}
   rb: {fileID: 8750854363286330000}
   crossHair: {fileID: 8750854363445698186}
