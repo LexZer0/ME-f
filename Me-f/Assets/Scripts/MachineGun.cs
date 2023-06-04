@@ -9,6 +9,7 @@ public class MachineGun : MonoBehaviour
         if (other.CompareTag("player")) //Проверяем, что персонаж подбирает артефакт
         {
             other.GetComponent<Player>().machineGun = true;
+            Destroy(gameObject);
         }
     }
 }
