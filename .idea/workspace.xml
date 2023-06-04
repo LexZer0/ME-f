@@ -5,12 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f3174cd-2239-41c2-8fb4-33cd7fa88212" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Me-f/Assets/FinishGame.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Me-f/Assets/FinishGame.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Me-f/Assets/MoveFromFloor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Me-f/Assets/MoveFromFloor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Me-f/Assets/PlayButtonAnimation.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Me-f/Assets/PlayButtonAnimation.controller.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Entity/Boss.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Entity/Boss.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Resources/EnemyPrefab.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Resources/EnemyPrefab.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Boss.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Boss.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/MiniBoss.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/MiniBoss.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/MiniBoss1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/MiniBoss1.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Sprites/kryss-ikari-purple-slime-sheet-export.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Sprites/kryss-ikari-purple-slime-sheet-export.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Entity/Arrow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Entity/Arrow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Entity/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Entity/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Rooms/BossRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Rooms/BossRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Scripts/Arrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Arrow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Scripts/BossRoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/BossRoom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Scripts/Cat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Cat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Scripts/PowerCrystal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/PowerCrystal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,18 +46,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2Oy5K74sbSxjw5U4Ksv0hGxRmmx" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/dudni/OneDrive/Рабочий стол/Python"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dudni/OneDrive/Рабочий стол/Python&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

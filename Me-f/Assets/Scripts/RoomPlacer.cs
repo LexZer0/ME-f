@@ -13,6 +13,8 @@ public class RoomPlacer : MonoBehaviour
     public Room[] BossRoomPrefabs;
     public Room[] ArtefactRoomPrefabs;
     private Room[,] spawnedRooms;
+
+
     private void Start()
     {
         spawnedRooms = new Room[11, 11];
@@ -24,6 +26,7 @@ public class RoomPlacer : MonoBehaviour
         PlaceSpawnRoom();
         PlaceBossRoom();
         PlaceArtefactRoom();
+
     }
 
     private void PlaceOneRoom()
@@ -80,13 +83,13 @@ public class RoomPlacer : MonoBehaviour
 
                 if (x > 0 && spawnedRooms[x - 1, y] == null) vacantPlaces.Add(new Vector2Int(x - 1, y));
                 if (y > 0 && spawnedRooms[x, y - 1] == null) vacantPlaces.Add(new Vector2Int(x, y - 1));
-                if(x < maxX && spawnedRooms[x + 1, y] == null) vacantPlaces.Add(new Vector2Int(x + 1, y));
-                if(y < maxY && spawnedRooms[x, y + 1] == null) vacantPlaces.Add(new Vector2Int(x, y + 1));
+                if (x < maxX && spawnedRooms[x + 1, y] == null) vacantPlaces.Add(new Vector2Int(x + 1, y));
+                if (y < maxY && spawnedRooms[x, y + 1] == null) vacantPlaces.Add(new Vector2Int(x, y + 1));
             }
         }
 
 
-        Room newRoom = Instantiate(BossRoomPrefabs[Random.Range(0, BossRoomPrefabs.Length)]); 
+        Room newRoom = Instantiate(BossRoomPrefabs[Random.Range(0, BossRoomPrefabs.Length)]);
 
         int limit = 500;
         while (limit-- > 0)
@@ -267,4 +270,4 @@ public class RoomPlacer : MonoBehaviour
         }
         return true;
     }
-    }
+}

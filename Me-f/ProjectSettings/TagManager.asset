@@ -9,6 +9,7 @@ TagManager:
   - player
   - Walls
   - Arrow
+  - MiniBoss
   layers:
   - Default
   - TransparentFX

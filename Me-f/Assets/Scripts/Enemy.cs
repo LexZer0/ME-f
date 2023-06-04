@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     private Rigidbody2D rb;
     private Player playerScript;
+    public float KD = 0;
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -27,7 +28,7 @@ public class Enemy : MonoBehaviour
 
     }
     private void Start()
-    { 
+    {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
         playerScript = player.GetComponent<Player>();
@@ -36,8 +37,8 @@ public class Enemy : MonoBehaviour
     {
         // ѕолучаем направление движени€ к игроку
         Vector3 direction = player.gameObject.transform.position - transform.position;
-       
-        if (direction.x < 3 && direction.y < 3 )
+
+        if (direction.x < 3 && direction.y < 3)
         {
             direction.Normalize();
             // ƒвигаем врага в направлении игрока с определенной скоростью
@@ -46,20 +47,28 @@ public class Enemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+
         if (collision.gameObject.tag == "Arrow")
         {
             TakeDamage(playerScript.currentDamage);
             Destroy(collision.gameObject);
         }
-        
+
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
+        if (KD > 0)
+        {
+            KD -= Time.deltaTime;
+        }
+
         if (collision.gameObject.tag == "player")
         {
-            playerScript.TakeDamage(Damage);
-
+            if (KD <= 0)
+            {
+                playerScript.TakeDamage(Damage);
+                KD = 1;
+            }
         }
     }
 }

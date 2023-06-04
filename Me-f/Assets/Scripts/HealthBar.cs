@@ -16,6 +16,6 @@ public class HealthBar : MonoBehaviour
   
     void Update()
     {
-        animator.SetFloat("Health", playerScript.Health);
+        animator.SetInteger("Health", playerScript.Health);
     }
 }

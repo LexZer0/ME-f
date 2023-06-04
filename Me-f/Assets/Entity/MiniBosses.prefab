@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 8750854363286330007}
   - component: {fileID: 8750854363286330028}
   - component: {fileID: 8708216603677432461}
-  - component: {fileID: 6959376629282215837}
+  - component: {fileID: -1844353145324804826}
   m_Layer: 0
-  m_Name: Boss
-  m_TagString: Enemy
+  m_Name: MiniBosses
+  m_TagString: MiniBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8750854363426381058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 1.4143081}
+  m_LocalPosition: {x: 13.831772, y: -29.67107, z: 3.8228102}
+  m_LocalScale: {x: 3, y: 3, z: 1.4143081}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -167,7 +167,7 @@ PolygonCollider2D:
       - {x: 0.05517398, y: 0.020204715}
       - {x: 0.045119278, y: 0.030012954}
       - {x: 0.025020815, y: 0.04}
---- !u!114 &6959376629282215837
+--- !u!114 &-1844353145324804826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,16 +176,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8750854363426381058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d62f737f7816b243a3a3ff980131577, type: 3}
+  m_Script: {fileID: 11500000, guid: 092497913bfa6b0478716562120d26f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  speed: 1.5
-  Damage: 2
+  health: 10
+  speed: 1
+  Damage: 1
   player: {fileID: 0}
-  enemyPrefab: {fileID: 0}
-  miniBosses:
-  - {fileID: -1844353145324804826, guid: dd1f6367ff0c731478b28a8cb21c7eb3, type: 3}
-  - {fileID: -1844353145324804826, guid: dd1f6367ff0c731478b28a8cb21c7eb3, type: 3}
-  - {fileID: -1844353145324804826, guid: dd1f6367ff0c731478b28a8cb21c7eb3, type: 3}
   KD: 0

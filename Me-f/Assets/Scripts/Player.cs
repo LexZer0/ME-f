@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [Header("Ñharacteristic")]
+    [Header("Characteristic")]
     public int MaxHealth = 100;
     public int Health = 5;
     public int currentDamage=10;
@@ -32,9 +32,9 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        gameObject.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
+        Cursor.visible = false;      
     }
     private void Start()
     {
@@ -65,15 +65,6 @@ public class Player : MonoBehaviour
         if (Health > MaxHealth)
             Health = MaxHealth;
     }
-
-    private void FixedUpdate()
-    {
-        if (Health == 0)
-        {
-            //Destroy();
-        }
-    }
-
     void ProcessInputs()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
@@ -142,6 +133,8 @@ public class Player : MonoBehaviour
         {
             gameObject.SetActive(false);
             SceneManager.LoadScene("EndMenu");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }

@@ -6,7 +6,7 @@ public class MainMenuScript : MonoBehaviour
 {
     public void PlayPressed()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("FirstFloor");
     }
     public void ExitPressed()
     {

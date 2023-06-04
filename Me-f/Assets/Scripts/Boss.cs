@@ -6,18 +6,20 @@ public class Boss : MonoBehaviour
 {
     public int health = 100;
     public float speed = 5f;
-    public int damage = 10;
+    public int Damage = 10;
     public GameObject player;
     private Rigidbody2D rb;
     private Player playerScript;
     public GameObject enemyPrefab;
-    public int numEnemies = 3; // Количество новых противников после смерти
-
+    public MiniBoss[] miniBosses;
+    public float KD = 0;
+    Vector3 position;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
         playerScript = player.GetComponent<Player>();
+        position = gameObject.transform.position;
     }
 
     public void TakeDamage(int damage)
@@ -33,19 +35,47 @@ public class Boss : MonoBehaviour
     {
         // Получаем направление движения к игроку
         Vector3 direction = player.gameObject.transform.position - transform.position;
-        direction.Normalize();
 
-        // Двигаем врага в направлении игрока с определенной скоростью
-        rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
-        //transform.Translate(direction * speed * Time.deltaTime);
-     
+        if (direction.x < 3 && direction.y < 3)
+        {
+            direction.Normalize();
+            // Двигаем врага в направлении игрока с определенной скоростью
+            rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
+        }
     }
     void Die()
     {
-        Destroy(gameObject);
-        for (int i = 0; i < numEnemies; i++)
+        for (int i = 0; i < miniBosses.GetLength(0); i++)
+        { 
+            miniBosses[i].transform.position = new Vector3(Random.Range(position.x - 2, position.x + 2), Random.Range(position.y - 2, position.y + 2), Random.Range(position.z - 2, position.z + 2));
+            Instantiate(miniBosses[i]);
+        }
+        gameObject.SetActive(false);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "Arrow")
         {
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            TakeDamage(playerScript.currentDamage);
+            Destroy(collision.gameObject);
+        }
+
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (KD > 0)
+        {
+            KD -= Time.deltaTime;
+        }
+
+        if (collision.gameObject.tag == "player")
+        {
+            if (KD <= 0)
+            {
+                playerScript.TakeDamage(Damage);
+                KD = 1;
+            }
         }
     }
 }
