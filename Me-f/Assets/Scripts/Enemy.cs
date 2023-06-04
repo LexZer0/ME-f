@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     private Player playerScript;
     public float KD = 0;
     private Coroutine slowCoroutine;
+    public float recoilForce = 100f; // —ила отскока при попадании снар€да
+    private new Collider2D collider2D;
 
     public void TakeDamage(int damage)
     {
@@ -36,6 +38,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.Find("Player");
         playerScript = player.GetComponent<Player>();
         currentSpeed = speed;
+        collider2D = GetComponent<Collider2D>();
     }
     private void Update()
     {
@@ -46,7 +49,7 @@ public class Enemy : MonoBehaviour
         {
             direction.Normalize();
             // ƒвигаем врага в направлении игрока с определенной скоростью
-            rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
+            rb.velocity = new Vector2((direction.x * speed)/2, (direction.y * speed)/2);
         }
     }
 
@@ -56,11 +59,13 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Arrow")
         {
             TakeDamage(playerScript.currentDamage);
+            var direction = (collision.contacts[0].point - (Vector2)transform.position).normalized;
             Destroy(collision.gameObject);
+            GetComponent<Rigidbody2D>().AddForce(direction * recoilForce, ForceMode2D.Impulse);
         }
         
     }
-    
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (KD > 0)
