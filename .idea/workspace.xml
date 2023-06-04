@@ -5,30 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f3174cd-2239-41c2-8fb4-33cd7fa88212" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Entity/Boss.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Entity/Boss.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Resources.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Resources/EnemyPrefab.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Resources/EnemyPrefab.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Boss.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Boss.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/MiniBoss.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/MiniBoss.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/MiniBoss1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/MiniBoss1.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Sprites/kryss-ikari-purple-slime-sheet-export.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Sprites/kryss-ikari-purple-slime-sheet-export.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Artefacts/Carpet.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Artefacts/Carpet.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Artefacts/Glue.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Artefacts/Glue.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Artefacts/MachineGun.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Artefacts/MachineGun.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Artefacts/Mirror.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Artefacts/Mirror.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Carpet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Carpet.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Glue.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Glue.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/MachineGun.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/MachineGun.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Mirror.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Mirror.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/slowOnHit.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/slowOnHit.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/ProjectSettings/BurstAotSettings_StandaloneWindows.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Me-f/ProjectSettings/CommonBurstAotSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Entity/Arrow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Entity/Arrow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Artefacts/BoostCrystal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Artefacts/BoostCrystal.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Artefacts/Cat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Artefacts/Cat.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Artefacts/HealPotion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Artefacts/HealPotion.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Me-f/Assets/Entity/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Entity/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Rooms/BossRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Rooms/BossRoom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Scripts/Arrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Arrow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Scripts/BossRoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/BossRoom.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Scripts/Cat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Cat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Entity/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Entity/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Me-f/Assets/Rooms/ArtefactRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Rooms/ArtefactRoom.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Me-f/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Me-f/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Me-f/Assets/Scripts/PowerCrystal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/Assets/Scripts/PowerCrystal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Me-f/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Me-f/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Me-f/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
