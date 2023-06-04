@@ -12,6 +12,7 @@ public class Glue : MonoBehaviour
         if (other.CompareTag("player")) //Проверяем, что персонаж подбирает артефакт
         {
             other.GetComponent<Player>().artGlue = true;
+            Destroy(gameObject);
         }
     }
 }

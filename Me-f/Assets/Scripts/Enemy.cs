@@ -58,8 +58,9 @@ public class Enemy : MonoBehaviour
             TakeDamage(playerScript.currentDamage);
             Destroy(collision.gameObject);
         }
-
+        
     }
+    
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (KD > 0)

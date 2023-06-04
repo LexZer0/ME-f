@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f68e3df4701c334a8c506c52159b3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 10
   Health: 0
   currentDamage: 10
   moveSpeed: 2
@@ -330,6 +330,7 @@ MonoBehaviour:
   shootingRecoilBase: 0.4
   artGlue: 0
   flyOver: 0
+  Mirror: 0
   fireRate: 0.2
   machineGun: 0
   animator: {fileID: 8750854363286330028}
