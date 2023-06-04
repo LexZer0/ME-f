@@ -179,9 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d62f737f7816b243a3a3ff980131577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 200
   speed: 1.5
-  Damage: 2
+  Damage: 5
   player: {fileID: 0}
   enemyPrefab: {fileID: 0}
   miniBosses:

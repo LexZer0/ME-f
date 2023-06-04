@@ -1025,7 +1025,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6959376629282215837, guid: a80628f7b8edd3543a3abb93d02a8d57, type: 3}
       propertyPath: Damage
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6959376629282215837, guid: a80628f7b8edd3543a3abb93d02a8d57, type: 3}
+      propertyPath: health
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6959376629282215837, guid: a80628f7b8edd3543a3abb93d02a8d57, type: 3}
       propertyPath: miniBosses.Array.size
