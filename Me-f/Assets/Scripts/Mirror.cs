@@ -9,6 +9,7 @@ public class Mirror : MonoBehaviour
         if (other.CompareTag("player")) //Проверяем, что персонаж подбирает артефакт
         {
             other.GetComponent<Player>().Mirror = true;
+            Destroy(gameObject);
         }
     }
 }
